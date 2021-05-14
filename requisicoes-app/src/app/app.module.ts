@@ -8,10 +8,12 @@ import { environment } from '../environments/environment'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FuncionarioComponent } from './services/funcionario/funcionario.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FuncionarioComponent
   ],
   imports: [
     BrowserModule,
