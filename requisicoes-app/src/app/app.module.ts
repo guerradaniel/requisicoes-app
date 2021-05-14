@@ -8,15 +8,17 @@ import { environment } from '../environments/environment'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FuncionarioComponent } from './services/funcionario/funcionario.component';
+import { LoginComponent } from './components/public/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FuncionarioComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AngularFireModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,

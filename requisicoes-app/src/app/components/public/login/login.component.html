@@ -1,0 +1,59 @@
+<div class="bg">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h3 class="card-title text-center">
+              <a routerLink="/inicio"> <i class="fas fa-tasks fa-2x"></i>
+              </a> Sistema de Requisições </h3>
+            <div class="form-signin">
+              <form #f="ngForm">
+                <fieldset>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input class="form-control" name="emailControle" #emailControle="ngModel" type="text"
+                      placeholder="Informe o Email" [(ngModel)]="email" maxLength="60" email required>
+                    <div *ngIf="emailControle.invalid" class="text-danger">
+                      <div *ngIf="emailControle.errors?.required">Email é obrigatório</div>
+                      <div *ngIf="emailControle.errors?.email">Email inválido</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Senha</label>
+                    <input class="form-control" name="passwordControl" #passwordControl="ngModel" type="password"
+                      placeholder="Senha" [(ngModel)]="senha" minLength="6" maxLength="30" email required>
+                    <span [hidden]="passwordControl.pristine || !passwordControl.errors?.required"
+                      class="text-danger">Senha obrigatória</span>
+                  </div>
+                  <div class="text-center">
+                    <button class="btn btn-info btn-block" (click)="logar()">
+                      <i class="fas fa-sign-in-alt"></i> Login </button>
+
+                    <h6 class="text-center"><strong>OU</strong></h6>
+                    <button class="btn btn-lg btn-success btn-block text-uppercase">
+                      <i class="far fa-envelope"></i> Recuperar </button>
+                  </div>
+                </fieldset>
+                <br>
+                <div class="alert alert-dismissible alert-danger" *ngIf="mensagem && !emailEnviado">
+                  {{mensagem}}
+                </div>
+                <div class="alert alert-dismissible alert-info" *ngIf="emailEnviado">
+                  Foi enviado um email para <strong>{{email}}</strong>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 
+	Caso haja erros, verificar em: 
+	https://github.com/kheronn/requisicoes-app/blob/master/src/app/components/public/login/login.component.html
+ -->
